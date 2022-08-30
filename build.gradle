@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'java'
+}
+
+group = 'com.gloryh'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.12'
+    implementation 'org.slf4j:slf4j-api'
+    implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.5.2'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
+    implementation group: 'javax.validation', name: 'com.springsource.javax.validation', version: '1.0.0.GA'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
